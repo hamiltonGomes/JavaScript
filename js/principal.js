@@ -3,7 +3,7 @@ primeiroTitulo.textContent = 'Aparecida Nutricionista!'; // controlando o valor 
 
 var pacientes = document.querySelectorAll(".paciente");
 
-for (var i = 0; i <= pacientes.length; i++) {
+for (var i = 0; i < pacientes.length; i++) {
 
     var paciente = pacientes[i]
 
@@ -34,11 +34,42 @@ for (var i = 0; i <= pacientes.length; i++) {
         var imc = peso / (altura * altura);
         tdImc.textContent = imc.toFixed(2);
     }
+    console.log(pacientes.length)
 }
 
 var botaoAdicionar = document.querySelector('#adicionar-paciente')
 botaoAdicionar.addEventListener('click', function (event) {
     event.preventDefault();
-
     var form = document.querySelector("#form-adiciona")
+
+    var nome = form.nome.value
+    var peso = form.peso.value
+    var altura = form.altura.value
+    var gordura = form.gordura.value
+/*     var imc = form.imc.value
+ */
+    var pacienteTr = document.createElement('tr')
+
+    var tdNome = document.createElement('td')
+    var tdPeso = document.createElement('td')
+    var tdAltura = document.createElement('td')
+    var tdGordura = document.createElement('td')
+/*     var tdIMC = document.createElement('td')
+ */    
+    tdNome.textContent = nome
+    tdPeso.textContent = peso
+    tdAltura.textContent = altura
+    tdGordura.textContent = gordura
+/*     tdIMC.textContent = imc
+ */
+    pacienteTr.appendChild(tdNome)
+    pacienteTr.appendChild(tdPeso)
+    pacienteTr.appendChild(tdAltura)
+    pacienteTr.appendChild(tdGordura)
+/*     pacienteTr.appendChild(tdIMC)
+ */
+    var tabelaPacientes = document.querySelector("#tabela-pacientes")
+
+    tabelaPacientes.appendChild(pacienteTr)
+
 })
