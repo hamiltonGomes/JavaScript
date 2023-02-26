@@ -1,5 +1,5 @@
 var primeiroTitulo = document.querySelector("h1");
-primeiroTitulo.textContent = "Aparecida Nutricionista"; // controlando o valor do conteúdo dentro da tag
+primeiroTitulo.textContent = 'Aparecida Nutricionista!'; // controlando o valor do conteúdo dentro da tag
 
 var pacientes = document.querySelectorAll(".paciente");
 
@@ -14,8 +14,6 @@ for (var i = 0; i <= pacientes.length; i++) {
     var altura = tdAltura.textContent; // ta pegando o valor da query especificada
 
     var tdImc = paciente.querySelector(".info-imc");
-    var tdAltura = paciente.querySelector(".info-altura");
-    var tdPeso = paciente.querySelector(".info-peso");
 
     var alturaValido = true;
     var pesoValido = true;
@@ -26,14 +24,21 @@ for (var i = 0; i <= pacientes.length; i++) {
         paciente.style.backgroundColor = "lightcoral";
     }
 
-    if (altura <= 0 || altura >= 3.00) {
+    else if (altura <= 0 || altura >= 3.00) {
         alturaValido = false;
         tdAltura.textContent = "Altura inválida.";
         paciente.classList.add("paciente-invalido"); //forma de atribuir a classe
     }
 
-    if (alturaValido && pesoValido) {
+    else if (alturaValido && pesoValido) {
         var imc = peso / (altura * altura);
         tdImc.textContent = imc.toFixed(2);
     }
 }
+
+var botaoAdicionar = document.querySelector('#adicionar-paciente')
+botaoAdicionar.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    var form = document.querySelector("#form-adiciona")
+})
